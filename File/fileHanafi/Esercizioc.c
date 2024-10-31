@@ -26,7 +26,7 @@ int main() {
         }
 
         // Conta le parole
-        if ((ch != ' ' && ch != '\t' && ch != '\n') && in_word == 0) {
+        if (ch != ' ' && ch != '\t' && ch != '\n' && in_word == 0) {
             in_word = 1; 
             word_count++; // Incrementa il conteggio delle parole
         } else if (ch == ' ' || ch == '\t' || ch == '\n') {
