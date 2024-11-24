@@ -17,7 +17,7 @@ int Ricercacognome(char cogn[]);
 void Stampainformazioni();
 
 int main() {
-    char cogn[60];
+    char cogn[60];  
 
    
     scriviFile();
