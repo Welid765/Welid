@@ -4,14 +4,18 @@
 
 typedef struct Persona
 {
+  char nome[10];
   char cognome[10];
   int voti[3];
+  int eta;
 } persona;
 
 void ScriviFile(char file[]);
 void LeggiFile(char file[]);
 int Ricercacognome(char file[],char cognome[]);
 void Stampainformazioni(char file[]);
+int ricercaRecord(char fileName[], char cognome[]);
+int stampaRecord(char fileName[], int);
 
 int main()
 {
@@ -19,6 +23,7 @@ int main()
 char file[] = "studenti.dat";
 
   char cogn[10];
+  int posizione;
 
   ScriviFile(file);
   LeggiFile(file);
@@ -37,6 +42,24 @@ char file[] = "studenti.dat";
 
   Stampainformazioni(file);
 
+  printf("Inserisci un cognome da cercare : ");
+  scanf("%s", cogn);
+  int Ricerca = ricercaRecord(file, cogn);
+
+  if(Ricerca != -1)
+  {
+    printf("Cognome %s trovato nella posizione %d",cogn,Ricerca);
+  }
+  else
+  {
+    printf("Cognome %s non trovato",cogn);
+  }
+
+
+  printf("Inserisci la posizione");
+  scanf("%d",&posizione);
+  int Record = stampaRecord(file, posizione);
+
   return 0;
 }
 
@@ -54,6 +77,12 @@ void ScriviFile(char file[])
   {
     printf("Inserisci un cognome");
     scanf("%s", buffer.cognome);
+
+    printf("Inserisci un nome");
+    scanf("%s", buffer.nome);
+
+    printf("Inserisci un eta");
+    scanf("%d",&buffer.eta);
 
     for (int j = 0; j < 3; j++)
     {
@@ -82,6 +111,8 @@ void LeggiFile(char file[])
   while (fread(&buffer, sizeof(persona), 1, fileptr) == 1)
   {
     printf("Cognome : %s", buffer.cognome);
+    printf("Nome :%s ",buffer.nome);
+    printf("Eta : %d", buffer.eta);
 
     for (int j = 0; j < 3; j++)
     {
@@ -144,12 +175,73 @@ void Stampainformazioni(char file[])
       }
     }
     float Media = (float)somma / 3;
-    printf("Cognome : %s  Media : %f  Voto Max: %d   Voto Min: %d ", buffer.cognome, Media, Max, Min);
+    printf("Cognome : %s  Nome: %s  Media : %f  Voto Max: %d   Voto Min: %d ", buffer.cognome,buffer.nome , Media, Max, Min);
     printf("\n");
   }
   fclose(fileptr);
 }
 
+
+
+int ricercaRecord(char file[], char cognome[])
+{
+  persona buffer;
+
+  FILE *fileptr = fopen(file , "rb");
+
+  if(file == NULL)
+  {
+    perror("Errore durante l'apertura del file ");
+    return 1;
+  }
+
+    int cont = 0;
+    int posizione = -1;
+    int somma = 0;
+  
+
+ while (fread(&buffer,sizeof(persona),1,fileptr) == 1)
+  {
+    if(strcmp(buffer.cognome ,cognome) == 0)
+    {
+       if(posizione == -1)
+        {
+           posizione = cont;
+        } 
+         for(int j = 0; j < 3; j++)
+           {
+              somma =somma + buffer.voti[j];
+           }
+           float media = somma / 3;
+           printf("Nome : %s Cognome : %s Eta: %d Media : %f ",buffer.nome,buffer.cognome,buffer.eta,media);
+    }
+    cont++;
+  }
+    return posizione; 
+  fclose(fileptr);
+}
+
+int stampaRecord(char file[] , int pos)
+{
+   persona buffer;
+
+  FILE *fileptr = fopen(file , "wb");
+
+  if (fileptr == NULL)
+  {
+    perror("Errore durante l'apertura del file");
+    return -1;
+  }
+  if(N>=pos){
+    return -1;
+  }
+  while (fread(&buffer, sizeof(persona), 1, fileptr) == 1){
+      fseek(fileptr,pos*sizeof(persona),SEEK_SET);
+      LeggiFile(file);
+
+  }
+  return 0;
+}
 
 
 
