@@ -1,24 +1,31 @@
 #include <iostream>
 using namespace std;
 
-class rettangolo {
-public:
-    int base;
-    int altezza;
-    double calcolaPerimetro(){
-        return 2*(base+altezza);
+class Rettangolo {
+private :
+    int Base;
+    int Altezza;
+
+    public:
+    void getbase(){
+        cin >> Base;
+   }
+    void getAltezza(){
+        cin >> Altezza;
     }
-    double calcolaArea(){
-        return base*altezza;
+    double AreaRettangolo()
+    {
+        return Base*Altezza;
     }
-    void stampa(){
-        cout << "perimetro: " << calcolaPerimetro() << endl; 
-        cout << "area: " << calcolaArea() << endl;
+
+    double PerimetroRettngolo()
+    {
+       return 2*(Base + Altezza);
     }
 }; 
 
 int main(){
-    rettangolo r1,r2;
+    Rettangolo r1,r2;
     r1.base = 10;
     r1.altezza = 20;
     r2.base = 20;
