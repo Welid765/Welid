@@ -32,7 +32,7 @@ char file[] = "studenti.dat";
   scanf("%s", cogn);
   int Conta = Ricercacognome(file,cogn);
   if (Conta != -1)
-  {
+  {  
     printf("Cognome %s è presente %d volte ", cogn, Conta);
   }
   else
