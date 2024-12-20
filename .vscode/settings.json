@@ -2,6 +2,8 @@
     "liveServer.settings.port": 5501,
     "files.associations": {
         "EsercizioVERIFICA.C": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "CIAO1.C": "cpp",
+        "fork2.C": "cpp"
     }
 }

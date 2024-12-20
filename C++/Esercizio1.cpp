@@ -1,49 +1,68 @@
-#include <iostream>
 
+#include <iostream>
 using namespace std;
 
-class rettangolo{
-
+class Rettangolo
+{
     private:
-        double altezza;
-        double base;
+    int base;
+    int altezza;
 
-    public:
-        void setAltezza(double n) { altezza = n;}  
-        void setBase(double n) { base = n;}        
-        double getAltezza() { return altezza;}
-        double getBase() { return base;}
-        
-        double calcolaperimetro() {   
-            return 2 * (base + altezza);
-        }
+     public :
+     void setBase(double base) 
+     {
+        this -> base = base;
+     }
 
-        double calcolaArea(){
-            return base*altezza;
-        }
+     void setAltezza(double altezza)
+     {
+        this -> altezza = altezza;
+     }
 
-        void stampa(){
-            double perimetro = calcolaperimetro();
-            double area = calcolaArea();
-            cout << "Base: " << getBase() << endl;
-            cout << "Altezza: " << getAltezza() << endl;
-            cout << "Perimetro: " << perimetro << endl;
-            cout << "area:" << area << endl;
-        }
-};
+     double getBase()
+     {
+        return base;
+     }
+     double getAltezza()
+     {
+        return altezza;
+     }
 
-int main(){
-    rettangolo R1;
+     double CalcolaPerimetro()
+     {
+        return base*altezza;
+     }
+     double CalcolaArea()
+     {
+        return 2*(base + altezza);
+     }
 
-    double base, altezza;
+     void Stampa()
+     {
+        double base = getBase();
+        double altezza = getAltezza();
+         cout << " base : " << base << endl;
+         cout << "altezza :" << altezza << endl;
+         cout << "Perimetro :" << CalcolaPerimetro() << endl;
+         cout << "Area:" <<  CalcolaArea() << endl;
+     }
+    };
 
-    cout << "inserisci la base:" << base << endl;
-    cin >> base;
-    cout << "inserisci l'altezza:" << altezza << endl;
-    cin >> altezza;
+    int main()
+    {
+        Rettangolo r1;
 
-    R1.setAltezza(altezza);
-    R1.setBase(base);
+        double base,altezza;
 
-    R1.stampa();  
-}
+        cout << "la base : " << endl;
+        cin >> base;
+        cout << "l'altezza : " << endl;
+        cin >> altezza;
+
+        r1.setBase(base);
+        r1.setAltezza(altezza);
+
+        r1.Stampa();
+
+        return 0;
+    }
