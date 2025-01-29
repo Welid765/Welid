@@ -9,10 +9,12 @@ int main()
 int numeratore,denominatore;
 
 
-cout << "Numeratore : " << endl;
+cout << " Numeratore : " << endl;
 cin >> numeratore;
 
-cout <<  "Denominatore : " << endl;
+cout << endl;
+
+cout <<  " Denominatore : " << endl;
 cin >> denominatore;
 
  Frazione r1(numeratore,denominatore);

@@ -11,8 +11,8 @@
 
   void Frazione :: Stampa()
   {
-    cout << "Numeratore : " << numeratore;
-    cout << "Denominatore : " << denominatore;
+    cout << "Numeratore : " << numeratore <<endl;
+    cout << "Denominatore : " << denominatore << endl;
     cout << "Frazione : " << numeratore << "/" << denominatore << endl;
   }
 
