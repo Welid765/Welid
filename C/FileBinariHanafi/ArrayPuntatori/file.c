@@ -4,6 +4,7 @@
 void Carica(int v[]);
 void Stampa(int v[]);
 int Max(int v[]);
+int Min(int v[]);
 
 int main()
 {
@@ -16,6 +17,9 @@ Stampa(v);
 
 int MAX = Max(v);
 printf("Il massimo è %d" , MAX);
+
+int MIN = Min(v);
+printf("Il minimo è %d ", MIN);
 
 
 return 0;
@@ -57,6 +61,21 @@ int Max(int v[])
     }
     return max;
 }
+
+int Min(int v[])
+{
+    int min = 10;
+    int *p;
+   for(p = v;p - v < N; p++)
+    {
+        if( *p < min)
+        {
+            min = *p;
+        }
+    }
+    return min;
+}
+
 
 
 

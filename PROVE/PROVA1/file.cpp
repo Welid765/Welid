@@ -21,7 +21,7 @@ string Studente :: GetCognome()
 {
     return cognome;
 }
- 
+     
 float Studente :: MediaStudente()
 {
 int somma = 0,voto = 0;
