@@ -8,3 +8,4 @@ Equilatero :: Equilatero(int a,int b,int c ,int d)
     this -> L4 = d;
 }
 
+ 

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 
-Quadrato :: Quadrato(int lato) : Rettangolo(lato,lato)
+Quadrato :: Quadrato(int lato) : Rettangolo(lato,lato) 
 {
 
 }

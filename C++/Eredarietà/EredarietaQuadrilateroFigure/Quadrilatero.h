@@ -14,7 +14,7 @@ class Quadrilatero
   Quadrilatero(int l1,int l2,int l3,int l4);
   
   void SetLati(int l1 = 5,int l2 = 5,int l3 = 7,int l4 = 9); 
-  int GetLati();
+  void GetLati();
   double CalcolaPerimetro();
 
   void Stampa();

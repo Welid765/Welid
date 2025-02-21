@@ -25,9 +25,9 @@ Quadrilatero :: Quadrilatero(int l1,int l2,int l3,int l4)
 
 }
 
-int Quadrilatero :: GetLati()
+void Quadrilatero :: GetLati()
 {
-    return l1,l2,l3,l4;
+cout << "Lati: " << l1 << l2 << l3 << l4 << endl;
 }
 
 double Quadrilatero :: CalcolaPerimetro()
@@ -39,12 +39,9 @@ double Quadrilatero :: CalcolaPerimetro()
 
 void Quadrilatero :: Stampa()
 {
-    cout << "Lati del Quadrilatero : " << GetLati();
+    GetLati();
     cout << "Perimetro Quadrilatero : " << CalcolaPerimetro() << endl;
-
 }
-
-
 
 
 
