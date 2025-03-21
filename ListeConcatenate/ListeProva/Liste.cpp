@@ -19,7 +19,8 @@ Nodo *Cancellazioneincoda(Nodo *s);
 Nodo *Ricerca(Nodo *s,int );
 int Conta(Nodo *s);
 void Ordinamentoingenuo(Nodo *s);
-/* void Rimuoviduplicati(Nodo *s);  */
+void Rimuoviduplicati(Nodo *s);
+Nodo *Maggiore(Nodo *s);
 
 
 int main()
@@ -41,6 +42,9 @@ int main()
     cout << "Inserimento a testa : " << endl;
     s = Inserimentointesta(s,a);
     Stampa(s);
+
+    s = Maggiore(s);
+   cout << "Elemento maggiore : " << s << endl;
     
     int Cont = Conta(s);
     cout << "Numero volte dei nodi : " << Cont << endl;
@@ -50,8 +54,8 @@ int main()
     Stampa(s);
 
 
-   /* Rimuoviduplicati(s);
-    Stampa(s); */
+    Rimuoviduplicati(s);
+    Stampa(s); 
 
 
     cout << "Cancellazione in testa : " << endl;
@@ -85,6 +89,9 @@ int main()
    {
      cout << "Elemento non trovato : " << a << endl;
    }
+
+
+
 
 return 0;
 
@@ -235,7 +242,7 @@ return cont;
 }
 
 
-/*void Rimuoviduplicati(Nodo *s)
+void Rimuoviduplicati(Nodo *s)
 {
   Nodo *aux = s;  
 
@@ -259,7 +266,7 @@ return cont;
   }
   aux = aux ->next;
 }
-  */
+  
 
 void Ordinamentoingenuo(Nodo *s)
 {
@@ -282,3 +289,24 @@ void Ordinamentoingenuo(Nodo *s)
 }
 }
 
+
+Nodo *Maggiore(Nodo *s)
+{
+  Nodo *aux = s;   
+  Nodo *Max = nullptr;
+
+  while(aux == nullptr)
+     {  
+          return nullptr;
+     }
+       Nodo *prev = aux->next; 
+       while(prev != nullptr)
+       {
+            if(aux -> info > prev -> info)
+         {
+           Max = aux;
+         }
+           prev = prev->next;
+         }
+         return Max;
+        }  

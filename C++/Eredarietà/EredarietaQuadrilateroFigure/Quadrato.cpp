@@ -5,7 +5,7 @@
 
 Quadrato :: Quadrato(int lato) : Rettangolo(lato,lato) 
 {
-
+   
 }
 
 double Quadrato :: CalcolaArea()
