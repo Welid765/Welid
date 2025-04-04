@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <cmath> 
 
@@ -27,7 +28,8 @@ int main()
       cout << " Chiuso " << endl;
       return 0;
     }
-    else
+    
+    if(b != a)
     {
       int elevato = b - '0';
       int valore = a - '0';
@@ -44,13 +46,6 @@ int main()
 
   return 0;
 }
-
-
-
-
-
-
-
 
 
 
