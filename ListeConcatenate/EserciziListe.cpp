@@ -15,6 +15,8 @@ void StampaInserimento(Nodo* s);
 Nodo* cancellaNodo(Nodo* s, int valore);
 Nodo* ricercaNodo(Nodo* s, int valore);
 int conteggioNodi(Nodo* s);
+void Rimuoviduplicati(Nodo *s);  
+
 
 int main() {
     Nodo* s = nullptr; 

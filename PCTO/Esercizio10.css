@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.pagina {
+    border: 4px double blue;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+}
+h1 {
+    color: blue;
+    font-size: 20px;
+}
+.box {
+    border: 1px solid rgb(10, 199, 66);
+    padding: 4px;
+    display: inline-block;
+    text-align: right;
+    margin-left: 1px;
+    background-color: white;
+}
+.sconto {
+    color: red;
+    font-weight: bold;
+}
+.prodotto {
+    color: #8B4513;
+    font-weight: bold;
+}

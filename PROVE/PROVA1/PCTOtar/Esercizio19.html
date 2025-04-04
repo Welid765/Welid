@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offerta del Mese</title>
+    <link rel="stylesheet" href="Esercizio19.css"> 
+    <style>
+        #ordineContainer {
+            display: none;
+            border: 4px double blue;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+        #ordineContainer h1 {
+            color: red;
+            font-size: 20px;
+        }
+        #ordineContainer h2 {
+            color: black;
+        }
+        .prodotto-selezionato {
+            color: green;
+            font-weight: bold;
+        }
+        .totale {
+            font-size: 18px;
+            font-weight: bold;
+            color: blue;
+            margin-top: 10px;
+        }
+        button:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="pagina">
+        <div class="contenitore">
+            <h1>NON LASCIATEVI SCAPPARE L'OFFERTA DEL MESE</h1>
+            <div class="box">
+                <p>
+                    <span class="prodotto" data-prezzo="3.50" data-sconto="25">Cavolini di Bruxelles 3,50€</span> 
+                    <span class="sconto">Sconto 25%</span> 
+                    <input type="checkbox" onchange="controllaSelezione()"> Acquista
+                </p>
+                <p>
+                    <span class="prodotto" data-prezzo="2.90" data-sconto="50">Fagiolini della Nonna 2,90€</span> 
+                    <span class="sconto">Sconto 50%</span> 
+                    <input type="checkbox" onchange="controllaSelezione()"> Acquista
+                </p>
+                <p>
+                    <span class="prodotto" data-prezzo="1.99" data-sconto="15">Kit Kat fondente 1,99€</span> 
+                    <span class="sconto">Sconto 15%</span> 
+                    <input type="checkbox" onchange="controllaSelezione()"> Acquista
+                </p>
+                <button type="button" onclick="visualizza()">Visualizza articoli selezionati</button>
+                <button type="button" id="creaOrdineBtn" onclick="creaOrdine()" disabled>Crea ordine</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="ordineContainer">
+        <h1>Bozza Ordine articoli</h1>
+        <h2>Elenco Articoli</h2>
+        <div id="listaOrdine"></div>
+        <p class="totale" id="totaleCosto"></p>
+    </div>
+
+    <script>
+        function visualizza() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var selectedItems = [];
+
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    selectedItems.push(checkbox.parentElement.querySelector('.prodotto').textContent);
+                }
+            });
+
+            if (selectedItems.length === 0) {
+                alert("Questa pagina dice\nNessun Articolo");
+            } else {
+                alert("Articoli selezionati: " + selectedItems.join(", "));
+            }
+        }
+
+        function controllaSelezione() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var creaOrdineBtn = document.getElementById("creaOrdineBtn");
+            
+            var almenoUnoSelezionato = Array.from(checkboxes).some(checkbox => checkbox.checked);
+            
+            creaOrdineBtn.disabled = !almenoUnoSelezionato;
+        }
+
+        function creaOrdine() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var selectedItems = [];
+            var totale = 0;
+
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    var prodotto = checkbox.parentElement.querySelector('.prodotto');
+                    var nomeProdotto = prodotto.textContent;
+                    var prezzo = parseFloat(prodotto.dataset.prezzo);
+                    var sconto = parseFloat(prodotto.dataset.sconto);
+
+                    var prezzoScontato = prezzo - (prezzo * sconto / 100);
+                    totale += prezzoScontato;
+
+                    selectedItems.push({ nome: nomeProdotto, prezzo: prezzoScontato.toFixed(2) + "€" });
+                }
+            });
+
+            var ordineContainer = document.getElementById("ordineContainer");
+            var listaOrdine = document.getElementById("listaOrdine");
+            var totaleCosto = document.getElementById("totaleCosto");
+
+            listaOrdine.innerHTML = "";
+
+            if (selectedItems.length === 0) {
+                listaOrdine.innerHTML = "<p class='prodotto-selezionato'>Nessun articolo selezionato</p>";
+                totaleCosto.textContent = "";
+            } else {
+                selectedItems.forEach(item => {
+                    var p = document.createElement("p");
+                    p.classList.add("prodotto-selezionato");
+                    p.textContent = item.nome + " - " + item.prezzo;
+                    listaOrdine.appendChild(p);
+                });
+
+                totaleCosto.textContent = "Costo totale Articoli: " + totale.toFixed(2) + "€";
+            }
+
+            ordineContainer.style.display = "block";
+        }
+    </script>
+</body>
+</html>

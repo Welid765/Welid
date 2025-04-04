@@ -17,7 +17,10 @@ Nodo *Cancellazioneintesta(Nodo *s);
 Nodo *Cancellazioneincoda(Nodo *s);
 Nodo *Ricerca(Nodo *s, int);
 int Conta(Nodo *s);
-void Rimuoviduplicati(Nodo *s);  
+void Rimuoviduplicati(Nodo *s);
+int Maggiore(Nodo *s);
+int Minore(Nodo *s);
+Nodo *CancellazioneValore(Nodo *s, int);
 
 int main()
 {
@@ -25,7 +28,7 @@ int main()
   Nodo *d = nullptr;
   int a;
 
-  cout << "Inserisci valore per inserimento in testa : " << endl;
+  cout << "Inserisci valore per inseriemnto in testa : " << endl;
   cin >> a;
   s = Inserimentointesta(s, a);
 
@@ -35,17 +38,35 @@ int main()
 
   cout << "Inserisci valore per inserimento in testa  : " << endl;
   cin >> a;
-
-  cout << "Inserimento a testa : " << endl;
   s = Inserimentointesta(s, a);
-  Stampa(s);
+
+  cout << "Inserisci valore per inseriemnto in testa : " << endl;
+  cin >> a;
+  s = Inserimentointesta(s, a);
+
+  cout << "Inserisci valore per inserimento in testa  : " << endl;
+  cin >> a;
+  s = Inserimentointesta(s, a);
+
+  int Massimo = Maggiore(s);
+  cout << "il valore massimo nei nodi è : " << Massimo << endl;
+
+  int Minimo = Minore(s);
+  cout << "il valore minimo nei nodi è : " << Minimo << endl;
 
   int Cont = Conta(s);
   cout << "Numero volte dei nodi : " << Cont << endl;
 
-   cout << "Numeri duplicati eliminati : " << endl;
-   Rimuoviduplicati(s);
-   Stampa(s); 
+  cout << "Inserisci un valore da eliminare : " << endl;
+  cin >> a;
+
+  cout << "Valore Cancellato : " << endl;
+  s = CancellazioneValore(s, a);
+  Stampa(s);
+
+  cout << "Numeri duplicati eliminati : " << endl;
+  Rimuoviduplicati(s);
+  Stampa(s);
 
   cout << "Cancellazione in testa : " << endl;
   s = Cancellazioneintesta(s);
@@ -220,25 +241,133 @@ void Rimuoviduplicati(Nodo *s)
 {
   Nodo *aux = s;
 
-  while(aux != nullptr)
-  {       
-    Nodo *prev = aux -> next;
-    while(prev != nullptr)
+  while (aux != nullptr)
+  {
+    Nodo *prev = aux->next;
+    while (prev != nullptr)
     {
-      if(aux->info == prev->info)
+      if (aux->info == prev->info)
       {
-       Nodo *temp = prev;
-       prev = prev->next;
-       delete temp;
-       aux -> next = prev;
+        Nodo *temp = prev;
+        prev = prev->next;
+        delete temp;
+        aux->next = prev;
       }
       else
       {
-        prev = prev ->next;
+        prev = prev->next;
       }
     }
-    aux = aux ->next;
+    aux = aux->next;
   }
 }
 
+int Maggiore(Nodo *s)
+{
+  Nodo *aux = s;
+  int Max = 0;
+  Nodo *prev = aux->next;
 
+  while (aux == nullptr)
+  {
+    cout << "Lista vuota : " << endl;
+  }
+
+  while (prev == nullptr)
+  {
+    cout << "Lista vuota : " << endl;
+  }
+
+  while (prev != nullptr)
+  {
+    if (aux->info > prev->info)
+    {
+      if (aux->info > Max)
+      {
+        Max = aux->info;
+      }
+    }
+    else
+    {
+      if (prev->info > Max)
+      {
+        Max = prev->info;
+      }
+    }
+    prev = prev->next;
+  }
+  return Max;
+}
+
+Nodo *CancellazioneValore(Nodo *s, int x)
+{
+  Nodo *aux = s;
+  Nodo *Temp = nullptr;
+  Nodo* prev = aux->next;
+
+  if (s == nullptr)
+  {
+    return nullptr;
+  }
+
+  if (s->next == nullptr && s->info == x)
+  {
+    Temp = s;
+    s = s->next;
+    delete Temp;
+
+    return s;
+  }
+
+  while (aux != nullptr && prev != nullptr)
+  {
+    while (aux->info == x && aux->next != nullptr)  
+    {
+      Temp = aux;
+      aux = aux ->next;
+      delete Temp;
+      aux = prev;
+    }
+      aux = aux->next;
+    }
+    return s;
+  }
+
+
+
+int Minore(Nodo *s)
+{
+  Nodo *aux = s;
+  int Min = 100;
+  Nodo *prev = aux->next;
+
+  if (s == nullptr)
+  {
+    cout << "Lista Vuota . " << endl;
+  }
+
+  if (prev == nullptr)
+  {
+    cout << "Lista Vuota : " << endl;
+  }
+
+  while (prev != nullptr)
+  {
+    if (aux->info > prev->info)
+    {
+      if (Min > prev->info)
+      {
+        Min = prev->info;
+      }
+    }
+    else
+    {
+      if (Min > aux->info)
+      {
+        Min = aux->info;
+      }
+    }
+    prev = prev->next;
+  }
+  return Min;
+}
