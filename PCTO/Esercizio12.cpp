@@ -12,7 +12,7 @@ int main()
   cout << "Inserisci un valore : " << endl;
   cin >> a;
 
-  if(a != 'F' || a != 'f')
+  if(a != 'F' && a != 'f')
   {
     cout << "Output Errato : " << endl;
     cout << "Rinserisci un valore : " << endl;
@@ -31,7 +31,7 @@ int main()
     {
       int elevato = b - '0';
       int valore = a - '0';
-      int risultato = pow(b, a);  // b elevato alla a
+      int risultato = pow(elevato, valore);  // b elevato alla a
       cout << "Il valore di " << a << " elevato alla potenza di " << elevato << " e' : " << risultato << endl;
     }
     
