@@ -7,7 +7,7 @@ using namespace std;
 
 Rettangolo :: Rettangolo(int base,int altezza) :Equilatero(base,altezza,base,altezza)
 {
-
+  
 }
 
 void  Rettangolo :: Stampa()

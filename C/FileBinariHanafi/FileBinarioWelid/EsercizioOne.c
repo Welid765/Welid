@@ -44,9 +44,9 @@ char file[] = "studenti.dat";
 
   printf("Inserisci un cognome da cercare : ");
   scanf("%s", cogn);
-  int Ricerca = ricercaRecord(file, cogn);
+  int Ricerca = Ricercacognome(file, cogn);
 
-  if(Ricerca != -1)
+  if(Ricerca != 0)
   {
     printf("Cognome %s trovato nella posizione %d",cogn,Ricerca);
   }
@@ -217,8 +217,8 @@ int ricercaRecord(char file[], char cognome[])
     }
     cont++;
   }
+   fclose(fileptr);
     return posizione; 
-  fclose(fileptr);
 }
 
 int stampaRecord(char file[] , int pos)
