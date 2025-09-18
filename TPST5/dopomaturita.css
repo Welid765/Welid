@@ -1,0 +1,31 @@
+body {
+    background-color: #e0f7fa;
+}
+/* Colore e ombra per il titolo principale */
+/* Titolo più grande e centrato */
+h1 {
+    color: #43a047; /* Verde acceso */
+    text-shadow: 1px 1px 4px #888;
+    font-size: 2.7em;
+    text-align: center;
+    margin-bottom: 0.7em;
+}
+
+/* Paragrafo più grande */
+p {
+    font-size: 1.35em;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 0 1.5em 0;
+}
+
+/* Immagini più grandi e centrate */
+img {
+    display: block;
+    margin: 32px auto 0 auto;
+    max-width: 340px;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #bbb;
+}

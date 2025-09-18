@@ -1,0 +1,63 @@
+/* Immagine personale */
+.foto-personale-sx {
+    max-width: 320px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #888;
+    display: block;
+    margin: 32px auto 0 auto;
+}
+
+/* Stile per la riga di bandiere */
+/* Bandiere */
+.bandiere {
+    margin-top: 40px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bandiera {
+    width: 80px;
+    height: 54px;
+    object-fit: cover;
+    border: 1.5px solid #bbb;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 2px 8px #aaa;
+}
+*/
+.foto-personale {
+    display: none;
+}
+/* Stile generale per la pagina chisono.html */
+body {
+    font-family: Verdana, sans-serif;
+    background-color: #e0f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titolo*/
+h1 {
+    color: #006064;
+    text-align: center;
+    font-size: 2.7em;
+    margin-top: 24px;
+    margin-bottom: 18px;
+}
+h2, h3 {
+    color: #006064;
+}
+
+/* Paragrafo*/
+p {
+    font-size: 1.35em;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 0 1.5em 0;
+}

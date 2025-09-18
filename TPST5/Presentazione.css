@@ -1,0 +1,56 @@
+/* titolo grande */
+h1 {
+    color: #d31010;
+    text-shadow: 1px 1px 4px #d51111;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Centra il contenuto e sfondo colorato */
+body {
+
+	background: url('https://www.okvoyage.com/wp-content/uploads/2023/05/le-drapeau-marocain-sur-marrakech-1536x1024.jpg') no-repeat center center fixed;
+	background-size: cover;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Cornice e box centrale */
+.container {
+	background: #fff;
+	border: 3px solid #1f6628;
+	border-radius: 18px;
+	box-shadow: 0 4px 24px rgba(42, 122, 226, 0.12);
+	padding: 2.5em 3em;
+	max-width: 500px;
+	margin: auto;
+	text-align: center;
+}
+
+/* Lista senza pallini */
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 1.5em 0 0 0;
+}
+
+/* Spaziatura tra i link */
+ul li {
+	margin: 0.7em 0;
+}
+
+/* Stile dei link */
+ul li a {
+	color: #3e12e0;
+	text-decoration: none;
+	font-size: 1.2em;
+	transition: color 0.2s;
+}
+
+/* Effetto hover sui link */
+ul li a:hover {
+	color: #da1313;
+	text-decoration: underline;
+}
