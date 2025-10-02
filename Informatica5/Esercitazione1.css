@@ -1,0 +1,109 @@
+/* Stile per la pagina di login */
+body.login-page {
+    background-color: #087033; 
+}
+
+/* Stile per la pagina di personalizzazione */
+body {
+    background-color: #7857f2; 
+}
+
+/* Stile per le immagini */
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 105%;
+}
+/* Stile per il  form di login e personalizzazione */
+form {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #ccc;
+    padding: 32px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="date"],
+form input[type="url"],
+form input[type="file"] {
+    width: 400px;
+    height: 50px;
+    font-size: 1.2em;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+form input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+form input[type="submit"] {
+    width: 220px;
+    height: 50px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+/* Stile per le etichette dei campi del form */
+label {
+    font-size: 1.1em;
+    color: #0b0a0e;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Stile per il titolo principale */
+h1 {
+    text-align: center;
+    color: #5b1f86;
+    margin-top: 32px;
+}
+
+/* Stile per il sottotitolo */
+h2 {
+    text-align: center;
+    color: #09ee55;
+    margin-top: 32px;
+}
+
+/* Stile per il box a sinistra */
+.box-sinistra {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    width: 180px;
+    height: 300px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #ccc;
+    padding: 20px;
+    z-index: 10;
+}
+
+/* Stile per il box a destra */
+.box-destra {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 180px;
+    height: 300px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #ccc;
+    padding: 20px;
+    z-index: 10;
+}
