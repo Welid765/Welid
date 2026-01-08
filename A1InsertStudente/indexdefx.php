@@ -1,6 +1,6 @@
 <?php
 // Connessione al database
-$conn = new mysqli("localhost", "root", "", "gestionescuola104");
+$conn = new mysqli("localhost", "root", "", "gestione_scuola");
 
 // Controllo connessione
 if ($conn->connect_error) {
@@ -10,8 +10,6 @@ if ($conn->connect_error) {
 // Dati dello studente da inserire
 $nome = "Welid";
 $cognome = "Hanafi";
-
-
 
 // Query SQL con placeholder
 $sql = "INSERT INTO studente (nome, cognome) VALUES (?, ?)";
